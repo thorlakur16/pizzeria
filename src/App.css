@@ -1,0 +1,7 @@
+.pizza-item {
+  background-color: gray;
+  boder: 3px solid black;
+  width: 30%;
+  align-items: center;
+  padding: 20px;
+}
