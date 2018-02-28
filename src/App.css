@@ -1,7 +1,19 @@
 .pizza-item {
-  background-color: gray;
-  boder: 3px solid black;
   width: 30%;
   align-items: center;
   padding: 20px;
+}
+
+.menu-item {
+  background-color: #cccccc;
+  boder: 1px solid black;
+  width: 400px;
+
+  align-items: center;
+  padding: 20px;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
 }

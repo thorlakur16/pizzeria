@@ -10,7 +10,7 @@ class Drasl extends React.Component {
 
         return(
             <div className="Drasl">
-                <img src='/images/pizza1.jpg' />
+                <img src='/images/pizza1.jpg' alt="logo" />
                 <p>Síða fannst ekki.</p>
             </div>
         );
