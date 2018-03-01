@@ -8,13 +8,18 @@ class PizzaDetails extends React.Component {
 
     render() {
 
-        let selectedPizza = {
-            id: 8,
-            name: "Cheese Delight!",
-            description: "Pizza with mozzarella, cheddar, cream cheese, pepper cheese and strawberry jam",
-            price: 2000,
-            image: "https://www.dominos.is/media/1096/media-6949-dominos_deluxe.png?width=400&format=jpg&quality=50&bgcolor=fff"
-        };
+        let selectedPizza = this.props.currentPizza;
+        console.log(this.props.currentPizza);
+        console.log(selectedPizza);
+        if(selectedPizza == undefined) {
+            selectedPizza = {
+                id: 0,
+                name: "",
+                description: "",
+                price: 0,
+                image: ""
+            };
+        }
 
         return (
             <div>

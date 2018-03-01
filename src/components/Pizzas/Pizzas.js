@@ -13,9 +13,7 @@ class Pizzas extends React.Component {
 
     componentDidMount() {
         fetch('http://localhost:3500/api/pizzas').then(response => response.json()).then(json =>{this.updateData(json)}
-
         );
-
     }
 
     updateData(json) {
@@ -27,18 +25,17 @@ class Pizzas extends React.Component {
         console.log(arr);
         this.setState({ dataArray: arr });
     }
+
     pizzaClicked (e) {
-
         let selectedPizza = this.state.dataArray[e.target.id -1];
+        console.log('Pizzas selected pizza: ');
         console.log(selectedPizza);
-        
-
+        this.props.changeCurrentPizza(selectedPizza);
     }
+
     render() {
 
         const { dataArray } = this.state;
-
-
 
         return (
             <div>
