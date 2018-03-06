@@ -6,10 +6,6 @@ class PizzaDetails extends React.Component {
         if(this.props.children){
             this.setState({selectedPizza: this.props.currentPizza});
         }
-
-        var order = JSON.parse(localStorage.getItem('order'));
-        console.log(order);
-
     }
 
     constructor(props) {
