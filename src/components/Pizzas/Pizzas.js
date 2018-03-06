@@ -43,8 +43,7 @@ class Pizzas extends React.Component {
                     {dataArray.map((item, key) => { return (
                         <div className="menu-item" >
                             <img src={item.image} alt={item.name}  id={item.id} onClick={this.pizzaClicked} />
-                        <div> {item.name} </div>
-
+                            <div> {item.name} </div>
                         </div>)
                         })
                     }
