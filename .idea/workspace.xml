@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32fd4b1c-49c6-4db1-85db-f6fa4e09f374" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/NavigationBarLinkWrapper/NavigationBarLinkWrapper.js" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/About/About.js" afterPath="$PROJECT_DIR$/src/components/About/About.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar/NavBar.js" afterPath="$PROJECT_DIR$/src/components/NavBar/NavBar.js" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" afterPath="$PROJECT_DIR$/src/index.css" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" afterPath="$PROJECT_DIR$/src/logo.svg" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -252,12 +244,12 @@
       <workItem from="1519815594631" duration="2593000" />
       <workItem from="1519906052098" duration="4392000" />
       <workItem from="1519912058699" duration="3551000" />
-      <workItem from="1520339853262" duration="8779000" />
+      <workItem from="1520339853262" duration="9374000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26716000" />
+    <option name="totallyTimeSpent" value="27311000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
