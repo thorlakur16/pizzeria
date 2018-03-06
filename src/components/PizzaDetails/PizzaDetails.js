@@ -11,7 +11,7 @@ class PizzaDetails extends React.Component {
         let selectedPizza = this.props.currentPizza;
         console.log(this.props.currentPizza);
         console.log(selectedPizza);
-        if(selectedPizza == undefined) {
+        if(selectedPizza === undefined) {
             selectedPizza = {
                 id: 0,
                 name: "",
