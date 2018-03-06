@@ -17,3 +17,12 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.offers {
+    display: flex;
+}
+
+.offer-item {
+    padding: 20px;
+    width: 25%;
+}
