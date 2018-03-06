@@ -29,15 +29,18 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <NavBar/>
-                <Pizzas changeCurrentPizza={this.changeCurrentPizza} />
-                <PizzaDetails currentPizza={ this.state.currentPizza } />
+                <NavBar />
+                <Pizzas />
             </div>
         );
     }
-
-
 }
+
+
+/*
+                <Pizzas changeCurrentPizza={this.changeCurrentPizza} />
+                <PizzaDetails currentPizza={ this.state.currentPizza } />
+ */
 
 export default App;
 
