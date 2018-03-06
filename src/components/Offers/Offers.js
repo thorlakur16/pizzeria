@@ -50,7 +50,7 @@ class Offers extends React.Component {
                                  id={item.id}
                                  onClick={this.offerClicked}
                             />
-                            
+
                             <div>
                                 {item.offer}
                             </div>

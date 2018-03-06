@@ -13,6 +13,10 @@
   padding: 20px;
 }
 
+.menu-item:hover {
+    cursor: pointer;
+}
+
 .menu {
   display: flex;
   flex-wrap: wrap;
