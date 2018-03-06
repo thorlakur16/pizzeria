@@ -47,9 +47,13 @@ class App extends Component {
             </MuiThemeProvder>
         );
     }
-
-
 }
+
+
+/*
+                <Pizzas changeCurrentPizza={this.changeCurrentPizza} />
+                <PizzaDetails currentPizza={ this.state.currentPizza } />
+ */
 
 export default App;
 
