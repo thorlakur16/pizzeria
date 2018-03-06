@@ -39,8 +39,6 @@ class PizzaDetails extends React.Component {
 
         const { selectedPizza } = this.state;
 
-        console.log(this.state);
-
         return (
             <div>
                 <h2>{selectedPizza.name}</h2>
