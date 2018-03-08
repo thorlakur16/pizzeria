@@ -43,7 +43,7 @@ class PizzaDetails extends React.Component {
 
     render() {
 
-        const { selectedPizza } = this.state;
+        const { selectedPizza } = this.props.selectedPizza;
 
         return (
             <div>

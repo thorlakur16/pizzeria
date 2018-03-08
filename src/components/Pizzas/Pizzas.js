@@ -29,6 +29,7 @@ class Pizzas extends React.Component {
     pizzaClicked (e) {
         let selectedPizza = this.state.dataArray[e.target.id -1];
         //this.props.changeCurrentPizza(selectedPizza);
+        console.log(this.props.children);
         this.props.changeCurrentPizza(selectedPizza);
     }
 
