@@ -12,6 +12,7 @@ import Cart from './components/Cart/Cart';
 import PizzaDetails from './components/PizzaDetails/PizzaDetails';
 import PickupForm from './components/PickupForm/PickupForm';
 import DeliveryForm from './components/DeliveryForm/DeliveryForm';
+import ReviewOrder from "./components/ReviewOrder/ReviewOrder";
 
 class App extends Component {
 
@@ -25,12 +26,6 @@ class App extends Component {
 
     changeCurrentPizza(pz) {
         this.setState({currentPizza: pz});
-        console.log('changeCurrentPizza App: ');
-        console.log(this.state.currentPizza);
-    }
-
-    componentDidMount() {
-        //this.props.getPizzaPrice();
     }
 
     render() {
@@ -46,6 +41,7 @@ class App extends Component {
                             <Route path='/cart' component={Cart}/>
                             <Route path='/pickup' component={PickupForm}/>
                             <Route path='/delivery' component={DeliveryForm}/>
+                            <Route path='/review' component={ReviewOrder}/>
                             <Route exact path='/menu' render={() => {
                                 return <Redirect to='/'/>
                             }}/>
