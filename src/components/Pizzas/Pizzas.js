@@ -28,6 +28,7 @@ class Pizzas extends React.Component {
 
     pizzaClicked (e) {
         let selectedPizza = this.state.dataArray[e.target.id -1];
+        //this.props.changeCurrentPizza(selectedPizza);
         this.props.changeCurrentPizza(selectedPizza);
     }
 
@@ -41,7 +42,7 @@ class Pizzas extends React.Component {
                 <div className="menu">
 
                     {dataArray.map((item, key) => { return (
-                        <div className="menu-item" >
+                        <div className="menu-item" key={key}>
                             <img src={item.image} alt={item.name}  id={item.id} onClick={this.pizzaClicked} />
                         <div> {item.name} </div>
 

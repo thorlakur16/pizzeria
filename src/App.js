@@ -10,6 +10,8 @@ import NavBar from "./components/NavBar/NavBar";
 import MuiThemeProvder from 'material-ui/styles/MuiThemeProvider';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import About from './components/About/About';
+import Cart from './components/Cart/Cart';
+import PizzaDetails from "./components/PizzaDetails/PizzaDetails";
 
 class App extends Component {
 
@@ -34,12 +36,15 @@ class App extends Component {
                     <NavBar/>
                     <div className='main-container'>
                         <Switch>
+                            <Route path='/pizza:pizzaId' component={PizzaDetails} currentPizza={this.state.currentPizza}/>
                             <Route path='/about' component={About}/>
                             <Route path='/offers' component={Offers}/>
+                            <Route path='/cart' component={Cart}/>
                             <Route exact path='/menu' render={() => {
                                 return <Redirect to='/'/>
                             }}/>
-                            <Route exact path='/' component={Pizzas}/>
+                            <Route exact path='/' component={Pizzas} changeCurrentPizza={this.changeCurrentPizza}/>
+
 
                         </Switch>
                     </div>
@@ -49,11 +54,6 @@ class App extends Component {
     }
 }
 
-
-/*
-                <Pizzas changeCurrentPizza={this.changeCurrentPizza} />
-                <PizzaDetails currentPizza={ this.state.currentPizza } />
- */
 
 export default App;
 

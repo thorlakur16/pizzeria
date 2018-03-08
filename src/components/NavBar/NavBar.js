@@ -1,7 +1,7 @@
 import React from 'react';
 
 import NavigationBarLinkWrapper from '../NavigationBarLinkWrapper/NavigationBarLinkWrapper';
-//import {NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 //import {connect} from 'react-redux';
 
 class NavBar extends React.Component {
@@ -14,18 +14,30 @@ class NavBar extends React.Component {
 
         return (
 
-            <nav className='nav-bar'>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
 
                 <NavigationBarLinkWrapper>
+
+                    <NavLink
+                        exact
+                        to='/'
+                        activeClassName='active'
+                        className='nav-link' >Menu</NavLink>
+                    <NavLink
+                        to='/offers'
+                        activeClassName='active'
+                        className='nav-link'>Offers</NavLink>
+                    <NavLink
+                        to='/about'
+                        activeClassName='active'
+                        className='nav-link'>About us</NavLink>
+                    <NavLink
+                        to='/cart'
+                        activeClassName='active'
+                        className='nav-link'>Cart</NavLink>
+
                 </NavigationBarLinkWrapper>
 
-                <ul>
-                    <li>Menu</li>
-                    <li>Offers</li>
-                    <li>About us</li>
-                    <li>Cart</li>
-                    <li>Schedule</li>
-                </ul>
             </nav>
         )
     };
