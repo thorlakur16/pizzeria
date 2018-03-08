@@ -8,18 +8,9 @@ class NavBar extends React.Component {
 
     constructor() {
         super();
-        this.state = {
-            cartNumber: 0
-        }
-    }
-
-    componentDidMount() {
-        let _order = JSON.parse(localStorage.getItem('order'));
-        this.setState({cartNumber: _order.length});
     }
 
     render() {
-        const { cartNumber } = this.state;
         return (
 
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -42,7 +33,7 @@ class NavBar extends React.Component {
                     <NavLink
                         to='/cart'
                         activeClassName='active'
-                        className='nav-link'>Cart ({ cartNumber })</NavLink>
+                        className='nav-link'>Cart</NavLink>
 
                 </NavigationBarLinkWrapper>
 

@@ -27,8 +27,10 @@ class PickupForm extends Component {
         if (fullName === '' || telephone === '') {
             return false;
         }
-        console.log(this.state.fields);
-        console.log('form submitted');
+        else{
+            console.log(this.state.fields)
+            localStorage.setItem('user', JSON.stringify(this.state.fields));
+        }
         this.setState(initalStat2);
     }
     render() {
