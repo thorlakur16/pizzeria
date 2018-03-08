@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 //import {PropTypes} from 'prop-types';
 import TextInput from '../TextInput/TextInput';
 //import CountrySelection from '../CountrySelection/CountrySelection';
-import toastr from 'toastr/toastr';
 
 const initalState = {
     fields: {

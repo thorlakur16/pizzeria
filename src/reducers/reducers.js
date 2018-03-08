@@ -1,4 +1,3 @@
-import detailReducer from './detailReducer';
 import priceReducer from './priceReducer';
 import pizza from './pizzaReducer';
 import offer from './offerReducer';
