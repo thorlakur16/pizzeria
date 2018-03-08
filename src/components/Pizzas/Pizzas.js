@@ -26,7 +26,6 @@ class Pizzas extends React.Component {
             }
         }
 
-        console.log(selectedPizza);
         this.addToOrder(selectedPizza);
     }
 

@@ -19,8 +19,6 @@ class ReviewOrder extends React.Component {
         if ( _user.hasOwnProperty('address') ) {
             this.delivery = true;
         }
-        console.log(_order);
-        console.log(_user);
 
         this.setState({user: _user});
     }
@@ -48,6 +46,7 @@ class ReviewOrder extends React.Component {
                 secondParam: order
             })
         });
+        localStorage.clear();
     }
 
     render() {

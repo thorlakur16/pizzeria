@@ -12,7 +12,7 @@ class NavBar extends React.Component {
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
 
                 <NavigationBarLinkWrapper>
-
+                    <img src='https://cdn.dribbble.com/users/60266/screenshots/1926787/ricos-quesos-pizza_1x.jpg' width="100" alt="logo"/>
                     <NavLink
                         exact
                         to='/'
