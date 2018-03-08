@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-//import {PropTypes} from 'prop-types';
+import { Route, Redirect } from 'react-router';
 import TextInput from '../TextInput/TextInput';
 
 const initalStat2 = {
@@ -10,8 +10,10 @@ const initalStat2 = {
 
 };
 class PickupForm extends Component {
+
     constructor(props) {
         super(props);
+        this.success = false;
         this.state = initalStat2;
     }
 
@@ -22,20 +24,21 @@ class PickupForm extends Component {
     }
     onFormSubmit(e) {
         e.preventDefault();
-        //let {succsess} = this.state;
         const {fullName, telephone} = this.state;
         if (fullName === '' || telephone === '') {
             return false;
         }
         else{
-            console.log(this.state.fields)
             localStorage.setItem('user', JSON.stringify(this.state.fields));
         }
         this.setState(initalStat2);
+        this.success = true;
+
     }
     render() {
         const {fullName,telephone} = this.state.fields;
         return (
+            this.success ? <Redirect to="/review"/> :
             <div className='form-container'>
                 <h2>Fill out for pickup </h2>
                 <form action='' method='get' onSubmit={ (e) => this.onFormSubmit(e)}>
@@ -48,7 +51,7 @@ class PickupForm extends Component {
                         onChange={e => this.onInput(e)}
                         name='telephone'
                         value={telephone}
-                        validate={val => !val ? 'telephone is required':''}/>
+                        validate={val => !val ? 'Telephone is required':''}/>
                     <button type='submit' className='btn'>Submit</button>
 
                 </form>
