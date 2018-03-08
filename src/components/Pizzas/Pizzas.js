@@ -1,4 +1,5 @@
 import React from 'react';
+import { getAllPizzas } from '../../actions/actions';
 
 class Pizzas extends React.Component {
 
@@ -12,8 +13,9 @@ class Pizzas extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3500/api/pizzas').then(response => response.json()).then(json =>{this.updateData(json)}
-        );
+        let pizzas = getAllPizzas();
+        this.updateData(pizzas);
+        console.log('pizzas: ' +pizzas);
     }
 
     updateData(json) {
@@ -28,8 +30,7 @@ class Pizzas extends React.Component {
 
     pizzaClicked (e) {
         let selectedPizza = this.state.dataArray[e.target.id -1];
-        //this.props.changeCurrentPizza(selectedPizza);
-        console.log(this.props.children);
+
         this.props.changeCurrentPizza(selectedPizza);
     }
 
