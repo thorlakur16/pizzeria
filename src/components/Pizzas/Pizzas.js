@@ -30,7 +30,7 @@ class Pizzas extends React.Component {
             <div>
                 <h2>Menu</h2>
                 <div className="menu">
-                    {pizza.map(p => <Pizza key={p.id} pizza={p} />)}
+                    {pizza.map(p => <Pizza key={p.id} pizza={p}  />)}
                 </div>
             </div>
         )
