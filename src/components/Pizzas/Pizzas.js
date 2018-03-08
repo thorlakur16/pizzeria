@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import Pizza from '../Pizza/Pizza';
+import { getAllPizzas } from "../../actions/actions";
 
 class Pizzas extends React.Component {
 
     constructor(props) {
         super(props);
-        this.updateData = this.updateData.bind(this);
         this.pizzaClicked = this.pizzaClicked.bind(this);
         this.state = {
             dataArray: []
@@ -12,47 +14,31 @@ class Pizzas extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3500/api/pizzas').then(response => response.json()).then(json =>{this.updateData(json)}
-        );
-    }
-
-    updateData(json) {
-        let arr = Object.assign([], this.state.dataArray);
-
-        for (var key in json) {
-            arr.push(json[key]);
-        }
-        console.log(arr);
-        this.setState({ dataArray: arr });
+        const{ getAllPizzas } = this.props;
+        getAllPizzas();
     }
 
     pizzaClicked (e) {
         let selectedPizza = this.state.dataArray[e.target.id -1];
+
         //this.props.changeCurrentPizza(selectedPizza);
-        console.log(this.props.children);
-        this.props.changeCurrentPizza(selectedPizza);
     }
 
     render() {
-
-        const { dataArray } = this.state;
-
+        const { pizza } = this.props;
         return (
             <div>
                 <h2>Menu</h2>
                 <div className="menu">
-
-                    {dataArray.map((item, key) => { return (
-                        <div className="menu-item" key={key}>
-                            <img src={item.image} alt={item.name}  id={item.id} onClick={this.pizzaClicked} />
-                            <div> {item.name} </div>
-                        </div>)
-                        })
-                    }
+                    {pizza.map(p => <Pizza key={p.id} pizza={p} />)}
                 </div>
             </div>
         )
     };
 }
 
-export default Pizzas;
+const mapStateToProps = ({ pizza }) => {
+    return { pizza }
+};
+
+export default connect(mapStateToProps, { getAllPizzas })(Pizzas);

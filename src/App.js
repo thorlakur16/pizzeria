@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 import './App.css';
 import Pizzas from './components/Pizzas/Pizzas';
-
+import reducers from './reducers/reducers';
 import Offers from './components/Offers/Offers';
 //import Drasl from './components/Drasl/Drasl';
 import NavBar from './components/NavBar/NavBar';
@@ -19,7 +19,8 @@ class App extends Component {
         super();
         this.changeCurrentPizza = this.changeCurrentPizza.bind(this);
         this.state = {
-            currentPizza: {}
+            currentPizza: {},
+            menu: []
         }
     }
 
@@ -35,6 +36,7 @@ class App extends Component {
     }
 
     render() {
+        console.log(this.state.menu);
         return (
             <MuiThemeProvder>
                 <div className="App">
@@ -49,8 +51,9 @@ class App extends Component {
                             <Route exact path='/menu' render={() => {
                                 return <Redirect to='/'/>
                             }}/>
-                            <Route exact path='/' component={Pizzas} changeCurrentPizza={this.changeCurrentPizza}/>
-                            <Route path='/:pizzaId' component={PizzaDetails} currentPizza={this.state.currentPizza}/>
+
+                            <Route exact path='/' component={Pizzas} menu={this.state.menu} changeCurrentPizza={this.changeCurrentPizza}/>
+                            <Route path='/:pizzaId' component={PizzaDetails} currentPizza={this.state.currentPizza} />
 
                         </Switch>
                     </div>
@@ -59,7 +62,6 @@ class App extends Component {
         );
     }
 }
-
 
 export default App;
 

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class PizzaDetails extends React.Component {
 
     /*componentDidMount() {
