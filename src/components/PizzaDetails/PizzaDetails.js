@@ -30,6 +30,9 @@ class PizzaDetails extends React.Component {
     addToOrder() {
         let order = JSON.parse(localStorage.getItem('order'));
         let arr = [];
+        if(order === null){
+            order = [];
+        }
         arr.push(this.state.selectedPizza);
         for(let i = 0; i < order.length; i++){
             arr.push(order[i]);
