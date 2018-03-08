@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 import './App.css';
 import Pizzas from "./components/Pizzas/Pizzas";
-//import PizzaDetails from "./components/PizzaDetails/PizzaDetails";
+import PizzaDetails from "./components/PizzaDetails/PizzaDetails";
 import Offers from "./components/Offers/Offers";
-//import Cart from "./components/Cart/Cart";
+import Cart from "./components/Cart/Cart";
 //import Drasl from "./components/Drasl/Drasl";
 import NavBar from "./components/NavBar/NavBar";
 import MuiThemeProvder from 'material-ui/styles/MuiThemeProvider';
@@ -44,6 +44,7 @@ class App extends Component {
                                 return <Redirect to='/'/>
                             }}/>
                             <Route exact path='/' component={Pizzas} changeCurrentPizza={this.changeCurrentPizza}/>
+
 
 
                         </Switch>

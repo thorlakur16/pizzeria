@@ -30,3 +30,13 @@
     padding: 20px;
     width: 25%;
 }
+
+.cart {
+    width: 35%;
+    background: #cccccc;
+}
+
+.cart-item {
+    background: antiquewhite;
+    border-bottom: solid 1px cadetblue;
+}
