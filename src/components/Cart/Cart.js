@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import {NavLink} from "react-router-dom";
 
 class Cart extends React.Component {
 
@@ -20,6 +20,8 @@ class Cart extends React.Component {
         super(props);
         this.removeFromCart = this.removeFromCart.bind(this);
         this.addToOrder = this.addToOrder.bind(this);
+        this.checkoutDelivery = this.checkoutDelivery.bind(this);
+        this.checkoutPickup = this.checkoutPickup.bind(this);
         this.state = {
             order: []
         }
@@ -36,6 +38,7 @@ class Cart extends React.Component {
                 price: 6000,
                 image: "http://snworksceo.imgix.net/ohi/ead6a57c-1980-4033-80cd-4d9a9aa9c197.sized-1000x1000.jpg"
         };
+
         let _order = JSON.parse(localStorage.getItem('order'));
         let arr = [];
         if(_order === null){
@@ -58,6 +61,14 @@ class Cart extends React.Component {
         localStorage.setItem('order', JSON.stringify(_order));
     }
 
+    checkoutDelivery() {
+
+    }
+
+    checkoutPickup(){
+
+    }
+
     render() {
         const { order } = this.state;
 
@@ -77,6 +88,14 @@ class Cart extends React.Component {
                     })
                 }
                 <div>Total price: {total}</div>
+                <NavLink
+                    to='/delivery'
+                    activeClassName='active'
+                    className='nav-link'>Delivery</NavLink>
+                <NavLink
+                    to='/pickup'
+                    activeClassName='active'
+                    className='nav-link'>Pickup</NavLink>
             </div>
         )
     };

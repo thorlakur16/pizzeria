@@ -19,9 +19,29 @@ class Pizzas extends React.Component {
     }
 
     pizzaClicked (e) {
-        let selectedPizza = this.state.dataArray[e.target.id -1];
+        let selectedPizza;
+        for(let i = 0; i < this.props.pizza.length; i++){
+            if(this.props.pizza[i].id == e.target.id){
+                selectedPizza = this.props.pizza[i];
+            }
+        }
+        this.addToOrder(selectedPizza);
+    }
 
-        //this.props.changeCurrentPizza(selectedPizza);
+    addToOrder(pizzaToAdd) {
+
+        let _order = JSON.parse(localStorage.getItem('order'));
+        console.log(_order);
+        let arr = [];
+        if(_order === null){
+            _order = [];
+        }
+        arr.push(pizzaToAdd);
+        for(let i = 0; i < _order.length; i++){
+            arr.push(_order[i]);
+        }
+
+        localStorage.setItem('order', JSON.stringify(arr));
     }
 
     render() {
@@ -30,7 +50,7 @@ class Pizzas extends React.Component {
             <div>
                 <h2>Menu</h2>
                 <div className="menu">
-                    {pizza.map(p => <Pizza key={p.id} pizza={p}  />)}
+                    {pizza.map(p => <div id={p.id} onClick={this.pizzaClicked}><Pizza key={p.id} pizza={p} /></div>)}
                 </div>
             </div>
         )

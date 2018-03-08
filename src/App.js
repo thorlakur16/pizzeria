@@ -10,7 +10,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import About from './components/About/About';
 import Cart from './components/Cart/Cart';
 import PizzaDetails from './components/PizzaDetails/PizzaDetails';
-import PickupForm from './components/Form/PickupForm';
+import PickupForm from './components/PickupForm/PickupForm';
 import DeliveryForm from './components/DeliveryForm/DeliveryForm';
 
 class App extends Component {
@@ -31,7 +31,7 @@ class App extends Component {
 
     componentDidMount() {
         console.log(this.props);
-        this.props.getPizzaPrice();
+        //this.props.getPizzaPrice();
     }
 
     render() {
