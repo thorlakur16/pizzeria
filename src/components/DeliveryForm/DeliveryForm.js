@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-//import {PropTypes} from 'prop-types';
+import React, {Component} from 'react';
+import { Route, Redirect } from 'react-router';
 import TextInput from '../TextInput/TextInput';
-//import CountrySelection from '../CountrySelection/CountrySelection';
 
 const initalState = {
     fields: {
@@ -15,6 +14,7 @@ const initalState = {
 class DeliveryForm extends Component {
     constructor(props) {
         super(props);
+        this.success = false;
         this.state = initalState;
 
 
@@ -26,17 +26,18 @@ class DeliveryForm extends Component {
     }
     onFormSubmit(e) {
         e.preventDefault();
-        //let {succsess} = this.state;
         const{ fullName,address,telephone,city,zipcode} = this.state;
         if(fullName === '' || telephone === '' || address === '' || city === '' || zipcode === '' ) {return false;}
-        console.log(this.state.fields);
-        console.log('form submitted');
+        else {
+            localStorage.setItem('user', JSON.stringify(this.state.fields));
+        }
         this.setState(initalState);
-
+        this.success = true;
 }
 render() {
 const {fullName,address,telephone,zipcode,city} = this.state.fields;
 return (
+    this.success ? <Redirect to="/review"/> :
     <div className='form-container'>
         <h2>Fill out for delivery </h2>
         <form action='' method='get' onSubmit={(e) => this.onFormSubmit(e)}>
@@ -49,17 +50,17 @@ return (
                 onChange={e => this.onInput(e)}
                 name='address'
                 value={address}
-                validate={val => !val ? 'address is required':''}/>
+                validate={val => !val ? 'Address is required':''}/>
             <TextInput
                 onChange={e => this.onInput(e)}
                 name='telephone'
                 value={telephone}
-                validate={val => !val ? 'telephone is required':''}/>
+                validate={val => !val ? 'Telephone is required':''}/>
             <TextInput
                 onChange={e => this.onInput(e)}
                 name='city'
                 value={city}
-                validate={val => !val ? 'Postal code is required':''}/>
+                validate={val => !val ? 'A city is required':''}/>
             <TextInput
                 onChange={e => this.onInput(e)}
                 name='zipcode'
@@ -67,9 +68,7 @@ return (
                 validate={val => !val ? 'Postal code is required':''}/>
 
             <button type='submit' className='btn'>Submit</button>
-
         </form>
-
     </div>
 );
 }

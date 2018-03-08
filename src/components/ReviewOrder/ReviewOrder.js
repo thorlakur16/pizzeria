@@ -15,20 +15,43 @@ class ReviewOrder extends React.Component {
         this.setState({order: arr});
 
         let _user = JSON.parse(localStorage.getItem('user'));
+
+        if ( _user.hasOwnProperty('address') ) {
+            this.delivery = true;
+        }
+        console.log(_order);
         console.log(_user);
+
+        this.setState({user: _user});
     }
 
     constructor(props) {
         super(props);
-        this.removeFromCart = this.removeFromCart.bind(this);
+        this.delivery = false;
+        this.confirmOrder = this.confirmOrder.bind(this);
         this.state = {
             order: [],
             user: {}
         }
     }
 
+    confirmOrder() {
+        const { order, user } = this.state;
+        fetch('http://localhost:3500/api/orders/'+user.telephone, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                firstParam: user,
+                secondParam: order
+            })
+        });
+    }
+
     render() {
-        const { order } = this.state;
+        const { order, user } = this.state;
 
         let total = 0;
         for(let i = 0; i < order.length; i++){
@@ -36,16 +59,39 @@ class ReviewOrder extends React.Component {
         }
 
         return (
-            <div className="cart">
-                <h2>Cart</h2>
-                {order.map(p =>
-                    <div className="cart-item" >
-                        <div> {p.id} : {p.name} : {p.price} kr.</div>
-                    </div>
-                )}
+            this.delivery ?
+                <div>
+                    <h2>Name: {user.fullName}</h2>
+                    <h3>Telephone: {user.telephone}</h3>
+                    <h3>Address: {user.address}</h3>
+                    <h3>City: {user.city}</h3>
+                    <h3>Zip code: {user.zipcode}</h3>
+                    <div className="cart">
+                        <h2>Cart</h2>
+                        {order.map(p =>
+                            <div className="cart-item" >
+                                <div> {p.id} : {p.name} : {p.price} kr.</div>
+                            </div>
+                        )}
 
-                <div>Total price: {total}</div>
-                <button>Confirm</button>
+                        <div>Total price: {total}</div>
+                        <button onClick={this.confirmOrder}>Confirm</button>
+                    </div>
+                </div> :
+            <div>
+                <h2>Name: {user.fullName}</h2>
+                <h3>Telephone: {user.telephone}</h3>
+                <div className="cart">
+                    <h2>Cart</h2>
+                    {order.map(p =>
+                        <div className="cart-item" >
+                            <div> {p.id} : {p.name} : {p.price} kr.</div>
+                        </div>
+                    )}
+
+                    <div>Total price: {total}</div>
+                    <button onClick={this.confirmOrder}>Confirm</button>
+                </div>
             </div>
         )
     };
