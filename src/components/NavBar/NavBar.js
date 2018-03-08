@@ -6,10 +6,6 @@ import {NavLink} from "react-router-dom";
 
 class NavBar extends React.Component {
 
-    constructor() {
-        super();
-    }
-
     render() {
         return (
 

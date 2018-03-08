@@ -36,9 +36,12 @@ class Cart extends React.Component {
         const { order } = this.state;
 
         let total = 0;
+        console.log(order);
         for(let i = 0; i < order.length; i++){
             total += order[i].price;
         }
+
+
 
         return (
             <div className="cart">
