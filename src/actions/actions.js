@@ -1,5 +1,6 @@
 import priceService from "../services/priceService";
 import fetch from 'isomorphic-fetch';
+import pizzaService from "../services/pizzaService";
 
 export const getDetails = (data) => {
     return {
@@ -9,7 +10,11 @@ export const getDetails = (data) => {
 };
 
 export const getAllPizzas = () => {
-    return dispatch => fetch('http://localhost:3500/api/pizzas').then(json => json.json()).then(data => dispatch(getAllPizzaSuccess(data)))
+    return (dispatch) => {
+        return pizzaService.getAllPizzas().then(data => {
+            dispatch(getAllPizzaSuccess(data));
+        })
+    };
 };
 
 const getAllPizzaSuccess = (pizzas) => {
