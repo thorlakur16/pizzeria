@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { Provider, connect } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 //import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { BrowserRouter as Router} from 'react-router-dom';
-import reducer from './reducers/reducers';
+import reducers from './reducers/reducers';
+import { getPizzaPrice } from './actions/actions';
 
-//const AppWithRedux = connect(null, { getDetails })(App);
-ReactDOM.render(<Provider store={createStore(reducer)}><Router><App /></Router></Provider>, document.getElementById('root'));
+
+const AppWithRedux = connect(null, { getPizzaPrice })(App);
+ReactDOM.render(<Provider store={createStore(reducers, applyMiddleware(thunk))}><Router><AppWithRedux /></Router></Provider>, document.getElementById('root'));
 registerServiceWorker();
