@@ -43,6 +43,7 @@ class App extends Component {
                     <NavBar/>
                     <div className='main-container'>
                         <Switch>
+
                             <Route path='/about' component={About}/>
                             <Route path='/offers' component={Offers}/>
                             <Route path='/cart' component={Cart}/>
@@ -50,8 +51,10 @@ class App extends Component {
                             <Route exact path='/menu' render={() => {
                                 return <Redirect to='/'/>
                             }}/>
+
                             <Route exact path='/' component={Pizzas} menu={this.state.menu} changeCurrentPizza={this.changeCurrentPizza}/>
                             <Route path='/:pizzaId' component={PizzaDetails} currentPizza={this.state.currentPizza} />
+
                         </Switch>
                     </div>
                 </div>
