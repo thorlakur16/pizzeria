@@ -1,16 +1,14 @@
 .pizza-item {
-  width: 30%;
-  align-items: center;
-  padding: 20px;
+    width: 30%;
+    align-items: center;
 }
 
 .menu-item {
-  background-color: #cccccc;
-  boder: 1px solid black;
-  width: 400px;
-
-  align-items: center;
-  padding: 20px;
+    width: 400px;
+    align-items: center;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
 }
 
 .menu-item:hover {
@@ -18,8 +16,9 @@
 }
 
 .menu {
-  display: flex;
-  flex-wrap: wrap;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .offers {
