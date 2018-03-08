@@ -1,6 +1,6 @@
 import priceService from "../services/priceService";
-import fetch from 'isomorphic-fetch';
 import pizzaService from "../services/pizzaService";
+import offerService from "../services/offerService";
 
 export const getDetails = (data) => {
     return {
@@ -21,6 +21,21 @@ const getAllPizzaSuccess = (pizzas) => {
     return {
         type: 'GET_ALL_PIZZAS',
         payload: pizzas
+    };
+};
+
+export const getAllOffers = () => {
+    return (dispatch) => {
+        return offerService.getAllOffers().then(data => {
+            dispatch(getOffersSuccess(data));
+        })
+    };
+};
+
+const getOffersSuccess = (offers) => {
+    return {
+        type: 'GET_ALL_OFFERS',
+        payload: offers
     };
 };
 

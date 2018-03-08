@@ -8,6 +8,4 @@ const  pizzaService = () => {
     }
 };
 
-
-
 export default pizzaService();

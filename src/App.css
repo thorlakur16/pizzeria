@@ -1,9 +1,4 @@
 .pizza-item {
-    width: 30%;
-    align-items: center;
-}
-
-.menu-item {
     width: 400px;
     align-items: center;
     font-size: larger;
@@ -11,7 +6,7 @@
     text-align: center;
 }
 
-.menu-item:hover {
+.pizza-item:hover {
     cursor: pointer;
 }
 
@@ -23,11 +18,16 @@
 
 .offers {
     display: flex;
+    width: auto;
+    float: left;
 }
 
 .offer-item {
-    padding: 20px;
-    width: 25%;
+    margin: 10px;
+}
+
+.offer-item > div {
+    width: 300px;
 }
 
 .cart {

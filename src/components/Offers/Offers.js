@@ -1,4 +1,7 @@
 import React from 'react';
+import {connect} from "react-redux";
+import Offer from '../Offer/Offer'
+import { getAllOffers } from "../../actions/actions";
 
 class Offers extends React.Component {
 
@@ -12,9 +15,8 @@ class Offers extends React.Component {
     }
 
     componentDidMount() {
-        console.log('componentDidMount');
-        fetch('http://localhost:3500/api/offers').then(response => response.json()).then(json =>{this.updateData(json)}
-        );
+        const{ getAllOffers } = this.props;
+        getAllOffers();
     }
 
     updateData(json) {
@@ -35,37 +37,21 @@ class Offers extends React.Component {
     }
 
     render() {
-        console.log('render ' +this.state);
-        const { dataArray } = this.state;
+    const { offer } = this.props;
 
         return (
             <div>
                 <h2>Offers</h2>
                 <div className="offers">
-
-                    {dataArray.map((item, key) => { return (
-                        <div className="offer-item" >
-                            <img src={"https://memegenerator.net/img/instances/54122445/i-make-special-price-for-you-my-friend.jpg"}
-                                 alt={item.offer}
-                                 id={item.id}
-                                 onClick={this.offerClicked}
-                            />
-
-                            <div>
-                                {item.offer}
-                            </div>
-
-                            <div>
-                                Special price: {item.price}
-                            </div>
-
-                        </div>)
-                    })
-                    }
+                    {offer.map(p => <Offer key={p.id} offerThing={p}  />)}
                 </div>
             </div>
         )
     };
 }
 
-export default Offers;
+const mapStateToProps = ({ offer }) => {
+    return { offer }
+};
+
+export default connect(mapStateToProps, { getAllOffers })(Offers);
