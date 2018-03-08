@@ -28,6 +28,11 @@ class App extends Component {
         console.log(this.state.currentPizza);
     }
 
+    componentDidMount() {
+        console.log(this.props);
+        this.props.getPizzaPrice();
+    }
+
     render() {
         return (
             <MuiThemeProvder>
