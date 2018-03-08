@@ -21,7 +21,7 @@ class Pizzas extends React.Component {
     pizzaClicked (e) {
         let selectedPizza;
         for(let i = 0; i < this.props.pizza.length; i++){
-            if(this.props.pizza[i].id == e.target.id){
+            if(this.props.pizza[i].id === e.target.id){
                 selectedPizza = this.props.pizza[i];
             }
         }
