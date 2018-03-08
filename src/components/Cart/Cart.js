@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class Cart extends React.Component {
 
@@ -36,5 +37,7 @@ class Cart extends React.Component {
         )
     };
 }
+
+Cart.propTypes = {};
 
 export default Cart;
