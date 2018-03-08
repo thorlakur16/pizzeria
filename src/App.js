@@ -11,7 +11,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import About from './components/About/About';
 import Cart from './components/Cart/Cart';
 import PizzaDetails from './components/PizzaDetails/PizzaDetails';
-import Form from './components/Form/Form';
+import PickupForm from './components/Form/PickupForm';
+import DeliveryForm from './components/DeliveryForm/DeliveryForm';
 
 class App extends Component {
 
@@ -32,14 +33,15 @@ class App extends Component {
     render() {
         return (
             <MuiThemeProvder>
-                <div className="App">
+                <div className='App'>
                     <NavBar/>
                     <div className='main-container'>
                         <Switch>
                             <Route path='/about' component={About}/>
                             <Route path='/offers' component={Offers}/>
                             <Route path='/cart' component={Cart}/>
-                            <Route path='/submit' component={Form}/>
+                            <Route path='/pickup' component={PickupForm}/>
+                            <Route path='/delivery' component={DeliveryForm}/>
                             <Route exact path='/menu' render={() => {
                                 return <Redirect to='/'/>
                             }}/>
