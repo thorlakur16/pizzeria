@@ -30,12 +30,10 @@ class App extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
         //this.props.getPizzaPrice();
     }
 
     render() {
-        console.log(this.state.menu);
         return (
             <MuiThemeProvder>
                 <div className='App'>

@@ -31,7 +31,6 @@ class Pizzas extends React.Component {
     addToOrder(pizzaToAdd) {
 
         let _order = JSON.parse(localStorage.getItem('order'));
-        console.log(_order);
         let arr = [];
         if(_order === null){
             _order = [];
