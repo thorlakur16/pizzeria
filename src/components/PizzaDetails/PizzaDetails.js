@@ -3,21 +3,14 @@ import React from 'react';
 
 class PizzaDetails extends React.Component {
 
-    componentDidMount() {
+    /*componentDidMount() {
         const {getPizzaDetails} = this.props;
         const {pizzaId} = this.props.match.params;
-    }
+    }*/
 
     // inn í component did mount chacka á param  hvort hann sé til og ef hann er til þá á að sækja pizzu sem hefur þetta id
 
 
-    constructor(props) {
-        super(props);
-
-        if(this.props.children){
-            this.setState({selectedPizza: this.props.currentPizza});
-        }
-    }
 
     constructor(props) {
         super(props);

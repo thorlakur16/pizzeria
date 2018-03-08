@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 import './App.css';
 import Pizzas from "./components/Pizzas/Pizzas";
-import PizzaDetails from "./components/PizzaDetails/PizzaDetails";
+
 import Offers from "./components/Offers/Offers";
-import Cart from "./components/Cart/Cart";
 //import Drasl from "./components/Drasl/Drasl";
 import NavBar from "./components/NavBar/NavBar";
 import MuiThemeProvder from 'material-ui/styles/MuiThemeProvider';
@@ -36,7 +35,7 @@ class App extends Component {
                     <NavBar/>
                     <div className='main-container'>
                         <Switch>
-                            <Route path='/pizza:pizzaId' component={PizzaDetails} currentPizza={this.state.currentPizza}/>
+                            <Route path='/:pizzaId' component={PizzaDetails} currentPizza={this.state.currentPizza}/>
                             <Route path='/about' component={About}/>
                             <Route path='/offers' component={Offers}/>
                             <Route path='/cart' component={Cart}/>
